@@ -1,0 +1,88 @@
+﻿@model IEnumerable<OneInc_test.Web.Models.PolicyDtoCreated>
+@using Newtonsoft.Json;
+@using OneInc_test.Web.Converters
+<thead>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(m => m.PolicyNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(m =>m.StartDate )
+        </th>
+        <th>
+            @Html.DisplayNameFor(m => m.EndDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(m => m.NameOwner)
+        </th>
+        <th>
+            @Html.DisplayNameFor(m => m.SurnameOwner)
+        </th>
+        <th>
+            @Html.DisplayNameFor(m => m.BirthDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(m => m.ObjectName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(m => m.ObjectType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(m => m.PolicyState)
+        </th>
+        <th>
+            @Html.DisplayNameFor(m => m.UpdateDate)
+        </th>
+        <th>Options</th>
+    </tr>
+</thead>
+
+<tbody class="table">
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(_ => item.PolicyNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(_ => item.StartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(_ => item.EndDate)
+            </td>
+            <td>
+                @Html.DisplayFor(_ => item.NameOwner)
+            </td>
+            <td>
+                @Html.DisplayFor(_ => item.SurnameOwner)
+            </td>
+            <td>
+                @Html.DisplayFor(_ => item.BirthDate)
+            </td>
+            <td>
+                @Html.DisplayFor(_ => item.ObjectName)
+            </td>
+            <td>
+                @Html.DisplayFor(_ => item.ObjectType)
+            </td>
+            <td>
+                @Html.DisplayFor(_ => item.PolicyState)
+            </td>
+            <td>
+                @Html.DisplayFor(_ => item.UpdateDate)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { Id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+</tbody>
+
+<script>
+    $(document).ready(setOprions(@Html.Raw(Serializer.SerializeDateTime(ViewBag.updateDate))
+        ,@Html.Raw(JsonConvert.SerializeObject(ViewBag.name)),@Html.Raw(JsonConvert.SerializeObject(ViewBag.surname))
+            ,@Html.Raw(JsonConvert.SerializeObject(ViewBag.state)),@Html.Raw(JsonConvert.SerializeObject(ViewBag.objectName))
+            ,@Html.Raw(JsonConvert.SerializeObject( ViewBag.nameSelected))));
+</script>
