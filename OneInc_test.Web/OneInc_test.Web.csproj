@@ -220,7 +220,7 @@
       <Project>{9EBE0C40-AEA3-4617-A98D-706FF2B367A0}</Project>
       <Name>OneInc_test.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\OneInt_test.Data\OneInc_test.Data.csproj">
+    <ProjectReference Include="..\OneInc_test.Data\OneInc_test.Data.csproj">
       <Project>{5253B419-D888-4716-9374-9C95AA2CBFAC}</Project>
       <Name>OneInc_test.Data</Name>
     </ProjectReference>
