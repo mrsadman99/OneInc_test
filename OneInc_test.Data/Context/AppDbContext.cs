@@ -10,7 +10,7 @@ namespace OneInc_test.Data.Context
 {
     public class AppDbContext : DbContext, IDbContext
     {
-        public AppDbContext():base("OneInc_test") {
+        public AppDbContext():base("OneInc_test7") {
         }
 
         public virtual IDbSet<Policy> Policy { get; set; }
