@@ -49,7 +49,7 @@ namespace OneInc_test.Web.Mapping
                     return new MapperConfiguration(cfg => cfg
                         .CreateMap<PolicyDtoCreated, Policy>()
                         .ForMember(dest => dest.MonthCreated, input => 
-                            input.MapFrom(src => src.UpdateDate.Month))
+                            input.MapFrom(src => int.Parse(src.PolicyNumber.Split('-')[0])))
                         .ForMember(dest=>dest.PolicyNumber,input=>
                             input.Ignore())
                     );
