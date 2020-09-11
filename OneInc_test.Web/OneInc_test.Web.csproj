@@ -125,6 +125,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\.gitignore" />
     <Content Include="Assests\Content\bootstrap-grid.css" />
     <Content Include="Assests\Content\bootstrap-grid.min.css" />
     <Content Include="Assests\Content\bootstrap-reboot.css" />
@@ -208,9 +209,7 @@
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\OneInc_test.BusinessLogic\OneInc_test.BusinessLogic.csproj">
       <Project>{B7F93CE3-A476-43A2-93FA-C0566FBD4366}</Project>
