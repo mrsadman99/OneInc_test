@@ -1,0 +1,75 @@
+﻿@model OneInc_test.Web.Models.PolicyDtoCreate
+
+@{
+    ViewBag.Title = "Create policy";
+    Html.EnableClientValidation(true);
+}
+@Scripts.Render("~/bundles/jqueryval")
+
+@using (Html.BeginForm(new { @id = "formId" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+    @Html.HiddenFor(m => m.UpdateDate)
+
+    <h2> Policy create</h2>
+
+    <div class="form-group row">
+        @Html.LabelFor(model => model.StartDate, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.EditorFor(model => model.StartDate, new
+        {
+            htmlAttributes =
+            new { @type = "date" }
+        })
+        @Html.ValidationMessageFor(model => model.StartDate)
+    </div>
+    <div class="form-group row">
+        @Html.LabelFor(model => model.EndDate, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.EditorFor(model => model.EndDate, new
+        {
+            htmlAttributes =
+                new { @type = "date" }
+        })
+        @Html.ValidationMessageFor(model => model.EndDate)
+    </div>
+    <div class="form-group row">
+        @Html.LabelFor(model => model.NameOwner, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.EditorFor(model => model.NameOwner)
+        @Html.ValidationMessageFor(model => model.NameOwner)
+    </div>
+
+    <div class="form-group row">
+        @Html.LabelFor(model => model.SurnameOwner, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.EditorFor(model => model.SurnameOwner)
+        @Html.ValidationMessageFor(model => model.SurnameOwner)
+    </div>
+
+    <div class="form-group row">
+        @Html.LabelFor(model => model.BirthDate, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.EditorFor(model => model.BirthDate, new { htmlAttributes = new { @type = "date" } })
+        @Html.ValidationMessageFor(model => model.BirthDate)
+    </div>
+
+    <div class="form-group row">
+        @Html.LabelFor(model => model.ObjectName, htmlAttributes:
+            new { @class = "control-label col-md-2" })
+        @Html.EditorFor(model => model.ObjectName)
+        @Html.ValidationMessageFor(model => model.ObjectName)
+    </div>
+
+    <div class="form-group row">
+        @Html.LabelFor(model => model.ObjectType, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.EnumDropDownListFor(model => model.ObjectType)
+        @Html.ValidationMessageFor(model => model.ObjectType)
+    </div>
+
+    <div class="form-group row">
+        @Html.LabelFor(model => model.UpdateDate, htmlAttributes: new { @class = "control-label col-md-2" })
+        <input type="date" readonly value="@Html.DisplayFor(m=>m.UpdateDate)">
+    </div>
+
+    <div class="list-group list-group-horizontal">
+        <input type="button" class="list-group-item list-group-item-action" value="Cancel" onclick="location.href='@Url.Action("Index", "Policy")'" />
+        <input type="submit" class="list-group-item list-group-item-action" value="Submit" />
+    </div>
+}

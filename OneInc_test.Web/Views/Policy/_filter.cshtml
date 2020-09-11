@@ -1,0 +1,60 @@
+﻿
+
+@model OneInc_test.Web.Models.Filter
+
+<div class="modal-header">
+    <h3>Filter settings</h3>
+</div>
+<div class="modal-body ">
+    <form id="filter_form">
+        <div class="form-group row">
+            @Html.LabelFor(model => model.updateDate)
+            @Html.EditorFor(model => model.updateDate, new
+       {
+           htmlAttributes =
+                    new { @type = "date" }
+       })
+        </div>
+        <div class="form-group row">
+            @Html.LabelFor(model => model.name)
+            @Html.EditorFor(model => model.name)
+        </div>
+
+        <div class="form-group row">
+            @Html.LabelFor(model => model.surname)
+            @Html.EditorFor(model => model.surname)
+        </div>
+
+        <div class="form-group row">
+            @Html.LabelFor(model => model.state)
+            @Html.EnumDropDownListFor(model => model.state)
+        </div>
+        <div class="form-group row">
+            @Html.LabelFor(model => model.objectName)
+            @Html.EditorFor(model => model.objectName)
+        </div>
+        <div class="form-group row">
+            @Html.LabelFor(model => model.nameSelected)
+            @Html.CheckBoxFor(model => model.nameSelected)
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button onclick="$('#modDialog').modal('hide')">Cancel</button>
+    <button id="Set">Set</button>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('#Set').click(function () {
+        var $form=$('#filter_form')
+        var data=$form.serialize();
+            $.post("/Policy/GetByOption", data)
+                .then(function (response) {
+                    $('#content').html(response);
+                })
+            $('#modDialog').modal('hide');
+        });
+    })
+</script>
+

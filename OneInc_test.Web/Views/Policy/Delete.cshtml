@@ -1,0 +1,75 @@
+﻿@{
+    ViewBag.Title = "Delete policy";
+}
+@model OneInc_test.Web.Models.PolicyDtoCreated
+@Scripts.Render("~/bundles/jqueryval")
+
+<h3>Are you sure you want to delete this?</h3>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+    @Html.HiddenFor(m => m.Id)
+
+    <div class="form-group row">
+        @Html.LabelFor(model => model.PolicyNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.TextBoxFor(m => m.PolicyNumber, htmlAttributes:
+            new { @readonly = "true" })
+    </div>
+
+    <div class="form-group row">
+        @Html.LabelFor(model => model.StartDate, htmlAttributes: new { @class = "control-label col-md-2" })
+        <input type="date" readonly value="@Html.DisplayFor(m=>m.StartDate)">
+    </div>
+
+    <div class="form-group row">
+        @Html.LabelFor(model => model.EndDate, htmlAttributes: new { @class = "control-label col-md-2" })
+        <input type="date" readonly value="@Html.DisplayFor(m=>m.EndDate)">
+    </div>
+    <div class="form-group row">
+        @Html.LabelFor(model => model.NameOwner, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.TextBoxFor(m => m.NameOwner, htmlAttributes:
+            new { @readonly = "true" })
+    </div>
+
+    <div class="form-group row">
+        @Html.LabelFor(model => model.SurnameOwner, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.TextBoxFor(m => m.SurnameOwner, htmlAttributes:
+            new { @readonly = "true" })
+    </div>
+
+    <div class="form-group row">
+        @Html.LabelFor(model => model.BirthDate, htmlAttributes: new { @class = "control-label col-md-2" })
+        <input type="date" readonly value="@Html.DisplayFor(m=>m.BirthDate)">
+    </div>
+
+    <div class="form-group row">
+        @Html.LabelFor(model => model.ObjectName, htmlAttributes:
+            new { @class = "control-label col-md-2" })
+        @Html.TextBoxFor(m => m.ObjectName, htmlAttributes:
+            new { @readonly = "true" })
+    </div>
+
+    <div class="form-group row">
+        @Html.LabelFor(model => model.ObjectType, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.TextBoxFor(m => m.ObjectType, htmlAttributes:
+            new { @readonly = "true" })
+    </div>
+
+    <div class="form-group row">
+        @Html.LabelFor(model => model.PolicyState, htmlAttributes:
+            new { @class = "control-label col-md-2" })
+        @Html.TextBoxFor(m => m.PolicyState, htmlAttributes:
+            new { @readonly = "true" })
+    </div>
+
+    <div class="form-group row">
+        @Html.LabelFor(model => model.UpdateDate, htmlAttributes: new { @class = "control-label col-md-2" })
+        <input type="date" readonly value="@Html.DisplayFor(m=>m.UpdateDate)">
+    </div>
+
+    <div class="list-group list-group-horizontal">
+        <input type="button" class="list-group-item list-group-item-action" value="No" onclick="location.href='@Url.Action("Index", "Policy")'" />
+        <input type="submit" class="list-group-item list-group-item-action" value="Yes" />
+    </div>
+}

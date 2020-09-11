@@ -1,0 +1,44 @@
+﻿@using Newtonsoft.Json;
+@using OneInc_test.Web.Converters
+
+@model IEnumerable<OneInc_test.Web.Models.Owner>
+
+
+<thead>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(m => m.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(m => m.Surname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(m => m.BirthDate)
+        </th>
+    </tr>
+</thead>
+
+<tbody class="table">
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(_ => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(_ => item.Surname)
+            </td>
+            <td>
+                @Html.DisplayFor(_ => item.BirthDate)
+            </td>
+        </tr>
+    }
+</tbody>
+
+<script>
+    $(document).ready(setOprions(@Html.Raw(Serializer.SerializeDateTime(ViewBag.updateDate))
+        ,@Html.Raw(JsonConvert.SerializeObject(ViewBag.name)),@Html.Raw(JsonConvert.SerializeObject(ViewBag.surname))
+            ,@Html.Raw(JsonConvert.SerializeObject(ViewBag.state)),@Html.Raw(JsonConvert.SerializeObject(ViewBag.objectName))
+            ,@Html.Raw(JsonConvert.SerializeObject( ViewBag.nameSelected))));
+</script>
+
